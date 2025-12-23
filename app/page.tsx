@@ -7,6 +7,10 @@ export default function Home() {
         Survival Plant Flashcards
       </h1>
 
+      <p style={{ marginTop: 0, marginBottom: 16 }}>
+    <a href="/flashcards">Go to Flashcards</a>
+  </p>
+
       {plants.map((plant, index) => (
         <div
           key={index}
