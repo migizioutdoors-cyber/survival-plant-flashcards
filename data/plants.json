@@ -31,5 +31,38 @@
       "usable": true,
       "notes": "Excellent for kindling and fire starting due to aromatic oils."
     }
+  },
+  {
+    "common_name": "Tulip Poplar",
+    "scientific_name": "Liriodendron tulipifera",
+    "region": "North America",
+    "categories": ["tree", "hardwood"],
+    "uses": ["friction fire", "spindle", "hearth"],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Classic friction-fire wood; often works best when both spindle and hearth are from the same dry poplar."
+    },
+    "edibility": {
+      "edible_parts": [],
+      "prep_notes": "",
+      "warnings": ""
+    },
+    "medicinal": {
+      "uses": [],
+      "warnings": ""
+    },
+    "cordage": {
+      "usable": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": "Carves easily; useful for hearth boards, notches, and campcraft."
+    }
   }
 ]
