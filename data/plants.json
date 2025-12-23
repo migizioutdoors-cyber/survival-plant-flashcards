@@ -1,0 +1,35 @@
+[
+  {
+    "common_name": "Eastern Red Cedar",
+    "scientific_name": "Juniperus virginiana",
+    "region": "North America",
+    "categories": ["tree", "evergreen"],
+    "uses": ["firecraft", "tinder", "wood"],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": true,
+      "notes": "Common hearth board material when dry; pairs well with softer spindles."
+    },
+    "edibility": {
+      "edible_parts": [],
+      "prep_notes": "",
+      "warnings": "Berries resemble edible juniper but should not be consumed in quantity."
+    },
+    "medicinal": {
+      "uses": [],
+      "warnings": ""
+    },
+    "cordage": {
+      "usable": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": true,
+      "notes": "Inner bark and shavings catch sparks well when dry."
+    },
+    "wood": {
+      "usable": true,
+      "notes": "Excellent for kindling and fire starting due to aromatic oils."
+    }
+  }
+]

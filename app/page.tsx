@@ -1,20 +1,38 @@
+import plants from "../data/plants.json";
+
 export default function Home() {
   return (
     <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
-      <h1 style={{ fontSize: 32, marginBottom: 8 }}>Survival Plant Flashcards</h1>
-      <p style={{ fontSize: 16, marginTop: 0 }}>
-        North American plants for survival, bushcraft, and friction fire.
-      </p>
+      <h1 style={{ fontSize: 32, marginBottom: 16 }}>
+        Survival Plant Flashcards
+      </h1>
 
-      <hr style={{ margin: "24px 0" }} />
+      {plants.map((plant, index) => (
+        <div
+          key={index}
+          style={{
+            border: "1px solid #ccc",
+            borderRadius: 8,
+            padding: 16,
+            marginBottom: 16,
+          }}
+        >
+          <h2 style={{ margin: 0 }}>{plant.common_name}</h2>
+          <p style={{ fontStyle: "italic", marginTop: 4 }}>
+            {plant.scientific_name}
+          </p>
 
-      <h2 style={{ fontSize: 20, marginBottom: 8 }}>Next steps</h2>
-      <ol style={{ lineHeight: 1.6 }}>
-        <li>Import the plant dataset (from your spreadsheet)</li>
-        <li>Build a searchable plant list</li>
-        <li>Add flashcard study mode</li>
-        <li>Add friction-fire pairing filters</li>
-      </ol>
+          <p>
+            <strong>Uses:</strong> {plant.uses.join(", ")}
+          </p>
+
+          <p>
+            <strong>Friction Fire:</strong>{" "}
+            {plant.friction_fire.hearth ? "Hearth board" : ""}
+            {plant.friction_fire.spindle ? " Spindle" : ""}
+          </p>
+        </div>
+      ))}
     </main>
   );
 }
