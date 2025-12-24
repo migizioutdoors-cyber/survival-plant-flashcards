@@ -40,7 +40,36 @@ export default function FlashcardsPage() {
   const [index, setIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const deck = allPlants;
+  const deck = useMemo(() => {
+  const chosen = (Object.entries(selected) as [Category, boolean][])
+    .filter(([, v]) => v)
+    .map(([k]) => k);
+
+  // If nothing selected, return empty deck
+  if (chosen.length === 0) return [];
+
+  return allPlants.filter((p) => {
+    return chosen.some((cat) => {
+      switch (cat) {
+        case "friction_fire":
+          return p.friction_fire?.spindle || p.friction_fire?.hearth;
+        case "tinder":
+          return p.tinder?.usable;
+        case "cordage":
+          return p.cordage?.usable;
+        case "wood":
+          return p.wood?.usable;
+        case "edibility":
+          return (p.edibility?.edible_parts?.length ?? 0) > 0;
+        case "medicinal":
+          return (p.medicinal?.uses?.length ?? 0) > 0;
+        default:
+          return false;
+      }
+    });
+  });
+}, [allPlants, selected]);
+
   const current = deck[index];
 
   function toggleCategory(cat: Category) {
@@ -48,24 +77,79 @@ export default function FlashcardsPage() {
   }
 
   function startSession() {
-    setSessionStarted(true);
-    setIndex(0);
-    setIsFlipped(false);
-  }
+  setIndex(0);
+  setIsFlipped(false);
+  setSessionStarted(true);
+}
+
 
   function nextCard() {
     setIsFlipped(false);
     setIndex((prev) => (prev + 1) % deck.length);
   }
 
-  if (!current) {
-    return (
-      <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
-        <h1>Flashcards</h1>
-        <p>No plants found in the deck.</p>
-      </main>
-    );
-  }
+  if (deck.length === 0) {
+  return (
+    <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
+      <h1 style={{ fontSize: 28, marginBottom: 8 }}>Flashcards</h1>
+
+      <section
+        style={{
+          border: "1px solid #ddd",
+          borderRadius: 12,
+          padding: 16,
+          maxWidth: 720,
+          marginBottom: 16,
+        }}
+      >
+        <h2 style={{ fontSize: 16, marginTop: 0, marginBottom: 12 }}>
+          Study Categories
+        </h2>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+          {(Object.keys(CATEGORY_LABELS) as Category[]).map((cat) => (
+            <label
+              key={cat}
+              style={{
+                display: "flex",
+                gap: 8,
+                alignItems: "center",
+                border: "1px solid #eee",
+                padding: "8px 10px",
+                borderRadius: 10,
+                cursor: "pointer",
+                userSelect: "none",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={selected[cat]}
+                onChange={() => toggleCategory(cat)}
+              />
+              {CATEGORY_LABELS[cat]}
+            </label>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 12, display: "flex", gap: 12 }}>
+          <button
+            onClick={startSession}
+            style={{ padding: "10px 14px", cursor: "pointer" }}
+            disabled
+            title="Select at least one category"
+          >
+            Start Session
+          </button>
+
+          <p style={{ margin: 0, opacity: 0.8, alignSelf: "center" }}>
+            Select at least one category to build a deck.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
+
 
   return (
     <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
