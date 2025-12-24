@@ -3,6 +3,7 @@
     "common_name": "Acorns (Oaks)",
     "scientific_name": "Quercus spp.",
     "plant_type": "Tree",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Acorns_small_to_large.jpg/640px-Acorns_small_to_large.jpg",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -38,6 +39,7 @@
     "common_name": "Amaranth",
     "scientific_name": "Amaranthus spp.",
     "plant_type": "Herb",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Amaranth_%22opopopeo%22_%28367191600%29.jpg/640px-Amaranth_%22opopopeo%22_%28367191600%29.jpg",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -73,6 +75,7 @@
     "common_name": "Arrowhead / Wapato",
     "scientific_name": "Sagittaria spp.",
     "plant_type": "Aquatic herb",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sagittaria_sagittifolia_sl33.jpg/960px-Sagittaria_sagittifolia_sl33.jpg",
     "uses": [],
     "friction_fire": {
       "spindle": false,
