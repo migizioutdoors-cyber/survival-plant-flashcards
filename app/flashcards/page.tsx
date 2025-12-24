@@ -41,6 +41,15 @@ function matchesCategory(p: Plant, cat: Category) {
   }
 }
 
+function shuffleArray<T>(arr: T[]) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function FlashcardsPage() {
   const allPlants = useMemo(() => plants as Plant[], []);
 
@@ -53,11 +62,19 @@ export default function FlashcardsPage() {
     medicinal: false,
   });
 
+  const [shuffleOn, setShuffleOn] = useState(true);
+
   const [sessionStarted, setSessionStarted] = useState(false);
   const [sessionComplete, setSessionComplete] = useState(false);
 
   const [categoryIndex, setCategoryIndex] = useState(0);
-  const [cardIndex, setCardIndex] = useState(0);
+
+  // Deck is a list of plants; we move through it by index.
+  const [deckIndex, setDeckIndex] = useState(0);
+
+  // Missed pile (plants the user marked as missed).
+  const [missed, setMissed] = useState<Plant[]>([]);
+
   const [isFlipped, setIsFlipped] = useState(false);
 
   const selectedOrder = useMemo(() => {
@@ -66,30 +83,30 @@ export default function FlashcardsPage() {
       .map(([k]) => k);
   }, [selected]);
 
-  // Build per-category decks so we can (a) compute total cards and (b) skip empty categories.
-  const decksByCategory = useMemo(() => {
-    const map: Partial<Record<Category, Plant[]>> = {};
-    for (const cat of selectedOrder) {
-      map[cat] = allPlants.filter((p) => matchesCategory(p, cat));
-    }
-    return map;
+  const deckForCategory = useMemo(() => {
+    if (selectedOrder.length === 0) return [];
+    const cat = selectedOrder[categoryIndex];
+    if (!cat) return [];
+    const d = allPlants.filter((p) => matchesCategory(p, cat));
+    return shuffleOn ? shuffleArray(d) : d;
+  }, [allPlants, selectedOrder, categoryIndex, shuffleOn]);
+
+  const totalCardsAllSelected = useMemo(() => {
+    return selectedOrder.reduce((sum, cat) => {
+      return sum + allPlants.filter((p) => matchesCategory(p, cat)).length;
+    }, 0);
   }, [allPlants, selectedOrder]);
 
-  const totalCards = useMemo(() => {
-    return selectedOrder.reduce((sum, cat) => {
-      return sum + (decksByCategory[cat]?.length ?? 0);
-    }, 0);
-  }, [selectedOrder, decksByCategory]);
-
   const activeCategory = selectedOrder[categoryIndex];
-  const deck = (activeCategory ? decksByCategory[activeCategory] : []) ?? [];
-  const current = deck[cardIndex];
+  const deck = deckForCategory;
+  const current = deck[deckIndex];
 
   function resetSession() {
     setSessionStarted(false);
     setSessionComplete(false);
     setCategoryIndex(0);
-    setCardIndex(0);
+    setDeckIndex(0);
+    setMissed([]);
     setIsFlipped(false);
   }
 
@@ -98,90 +115,85 @@ export default function FlashcardsPage() {
   }
 
   function startSession() {
-    // Guard: don’t start if no cards at all
-    if (selectedOrder.length === 0 || totalCards === 0) return;
+    if (selectedOrder.length === 0 || totalCardsAllSelected === 0) return;
 
-    setSessionComplete(false);
     setSessionStarted(true);
+    setSessionComplete(false);
     setCategoryIndex(0);
-    setCardIndex(0);
+    setDeckIndex(0);
+    setMissed([]);
     setIsFlipped(false);
   }
 
-  // Skip forward to the next non-empty category deck; if none exist, end the session.
-  function advanceToNextNonEmptyCategory(fromCategoryIndex: number) {
-    for (let i = fromCategoryIndex; i < selectedOrder.length; i++) {
+  function nextCategoryOrFinish() {
+    const nextCat = categoryIndex + 1;
+
+    // Move to next category if there is one (skip empties by looping)
+    for (let i = nextCat; i < selectedOrder.length; i++) {
       const cat = selectedOrder[i];
-      const d = decksByCategory[cat] ?? [];
+      const d = allPlants.filter((p) => matchesCategory(p, cat));
       if (d.length > 0) {
         setCategoryIndex(i);
-        setCardIndex(0);
+        setDeckIndex(0);
         setIsFlipped(false);
         return;
       }
     }
 
-    // No non-empty categories left
+    // No categories left — if missed exists, run missed round; otherwise complete.
+    if (missed.length > 0) {
+      // Start missed round as a "virtual category"
+      setCategoryIndex(selectedOrder.length); // sentinel index
+      setDeckIndex(0);
+      setIsFlipped(false);
+      return;
+    }
+
     setSessionStarted(false);
     setSessionComplete(true);
     setIsFlipped(false);
   }
 
+  const inMissedRound = sessionStarted && categoryIndex === selectedOrder.length;
+  const missedDeck = shuffleOn ? shuffleArray(missed) : missed;
+  const activeDeck = inMissedRound ? missedDeck : deck;
+  const activeCurrent = activeDeck[deckIndex];
+
+  function markMissed() {
+    if (!activeCurrent) return;
+
+    setMissed((prev) => {
+      // Avoid duplicates
+      if (prev.some((p) => p.common_name === activeCurrent.common_name)) return prev;
+      return [...prev, activeCurrent];
+    });
+
+    nextCard();
+  }
+
   function nextCard() {
     setIsFlipped(false);
 
-    // If active category has no deck (or became empty), skip it.
-    if (!activeCategory || deck.length === 0) {
-      advanceToNextNonEmptyCategory(categoryIndex + 1);
+    if (!activeDeck || activeDeck.length === 0) {
+      nextCategoryOrFinish();
       return;
     }
 
-    // Move within deck
-    if (cardIndex + 1 < deck.length) {
-      setCardIndex((i) => i + 1);
+    if (deckIndex + 1 < activeDeck.length) {
+      setDeckIndex((i) => i + 1);
       return;
     }
 
-    // End of this deck → advance to next category (skipping empties)
-    advanceToNextNonEmptyCategory(categoryIndex + 1);
-  }
+    // End of this deck
+    if (inMissedRound) {
+      // Finished missed round — complete session
+      setSessionStarted(false);
+      setSessionComplete(true);
+      setIsFlipped(false);
+      return;
+    }
 
-  // If nothing selected at all, show selector
-  if (selectedOrder.length === 0) {
-    return (
-      <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
-        <h1>Flashcards</h1>
-
-        <section
-          style={{
-            border: "1px solid #ddd",
-            borderRadius: 12,
-            padding: 16,
-            maxWidth: 720,
-            marginBottom: 16,
-          }}
-        >
-          <h2>Study Categories</h2>
-
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-            {(Object.keys(CATEGORY_LABELS) as Category[]).map((cat) => (
-              <label key={cat} style={{ display: "flex", gap: 8 }}>
-                <input
-                  type="checkbox"
-                  checked={selected[cat]}
-                  onChange={() => toggleCategory(cat)}
-                />
-                {CATEGORY_LABELS[cat]}
-              </label>
-            ))}
-          </div>
-
-          <p style={{ marginTop: 12, opacity: 0.8 }}>
-            Select at least one category.
-          </p>
-        </section>
-      </main>
-    );
+    nextCategoryOrFinish();
   }
 
   if (sessionComplete) {
@@ -195,7 +207,11 @@ export default function FlashcardsPage() {
         </p>
 
         <p>
-          <strong>Total Cards Reviewed:</strong> {totalCards}
+          <strong>Total Cards Available:</strong> {totalCardsAllSelected}
+        </p>
+
+        <p>
+          <strong>Missed Cards:</strong> {missed.length}
         </p>
 
         <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
@@ -216,11 +232,11 @@ export default function FlashcardsPage() {
           border: "1px solid #ddd",
           borderRadius: 12,
           padding: 16,
-          maxWidth: 720,
+          maxWidth: 760,
           marginBottom: 16,
         }}
       >
-        <h2>Study Categories</h2>
+        <h2>Study Settings</h2>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
           {(Object.keys(CATEGORY_LABELS) as Category[]).map((cat) => (
@@ -236,49 +252,47 @@ export default function FlashcardsPage() {
           ))}
         </div>
 
-        {!sessionStarted && (
-          <div style={{ marginTop: 12, display: "flex", gap: 12 }}>
-            <button
-              onClick={startSession}
-              disabled={totalCards === 0}
-              title={
-                totalCards === 0
-                  ? "No plants match the selected categories yet."
-                  : ""
-              }
-            >
-              Start Session
-            </button>
-            <p style={{ margin: 0, opacity: 0.8 }}>
-              Total cards available: <strong>{totalCards}</strong>
-            </p>
-          </div>
-        )}
+        <div style={{ display: "flex", gap: 16, marginTop: 12, alignItems: "center" }}>
+          <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <input
+              type="checkbox"
+              checked={shuffleOn}
+              onChange={() => setShuffleOn((v) => !v)}
+              disabled={sessionStarted}
+            />
+            Shuffle cards
+          </label>
 
-        {sessionStarted && (
-          <div style={{ marginTop: 12 }}>
-            <button onClick={resetSession}>Reset / Change Categories</button>
-          </div>
-        )}
+          {!sessionStarted ? (
+            <>
+              <button onClick={startSession} disabled={totalCardsAllSelected === 0}>
+                Start Session
+              </button>
+              <span style={{ opacity: 0.8 }}>
+                Total cards available: <strong>{totalCardsAllSelected}</strong>
+              </span>
+            </>
+          ) : (
+            <>
+              <button onClick={resetSession}>Reset / Change Categories</button>
+              <span style={{ opacity: 0.8 }}>
+                Missed so far: <strong>{missed.length}</strong>
+              </span>
+            </>
+          )}
+        </div>
       </section>
 
       {sessionStarted ? (
         <>
           <p>
-            <strong>Category:</strong>{" "}
-            {activeCategory ? CATEGORY_LABELS[activeCategory] : "—"}
+            <strong>Mode:</strong>{" "}
+            {inMissedRound ? "Missed Review" : CATEGORY_LABELS[activeCategory]}
           </p>
 
-          {deck.length > 0 ? (
-            <p>
-              Card {cardIndex + 1} of {deck.length} (Category{" "}
-              {categoryIndex + 1} of {selectedOrder.length})
-            </p>
-          ) : (
-            <p style={{ opacity: 0.8 }}>
-              No cards in this category. Click Next to skip.
-            </p>
-          )}
+          <p style={{ opacity: 0.8 }}>
+            Card {deckIndex + 1} of {activeDeck.length}
+          </p>
 
           <div
             style={{
@@ -288,44 +302,67 @@ export default function FlashcardsPage() {
               maxWidth: 640,
             }}
           >
-            {!current ? (
+            {!activeCurrent ? (
               <p style={{ margin: 0 }}>No card loaded.</p>
             ) : !isFlipped ? (
               <>
-                <h2 style={{ marginTop: 0 }}>{current.common_name}</h2>
-                <p style={{ fontStyle: "italic" }}>{current.scientific_name}</p>
+                <h2 style={{ marginTop: 0 }}>{activeCurrent.common_name}</h2>
+                <p style={{ fontStyle: "italic" }}>{activeCurrent.scientific_name}</p>
               </>
             ) : (
               <>
                 <p>
-                  <strong>Uses:</strong> {current.uses.join(", ")}
+                  <strong>Uses:</strong>{" "}
+                  {activeCurrent.uses && activeCurrent.uses.length > 0
+                    ? activeCurrent.uses.join(", ")
+                    : "—"}
                 </p>
+
                 <p>
-                  <strong>Friction Fire:</strong>{" "}
-                  {current.friction_fire?.spindle ? "Spindle " : ""}
-                  {current.friction_fire?.hearth ? "Hearth Board" : ""}
-                  {!current.friction_fire?.spindle &&
-                  !current.friction_fire?.hearth
-                    ? "N/A"
-                    : ""}
+                  <strong>Edible Parts:</strong>{" "}
+                  {activeCurrent.edibility?.edible_parts?.length
+                    ? activeCurrent.edibility.edible_parts.join(", ")
+                    : "—"}
+                </p>
+
+                <p>
+                  <strong>Medicinal Uses:</strong>{" "}
+                  {activeCurrent.medicinal?.uses?.length
+                    ? activeCurrent.medicinal.uses.join(", ")
+                    : "—"}
+                </p>
+
+                <p>
+                  <strong>Cautions:</strong>{" "}
+                  {activeCurrent.edibility?.cautions
+                    ? activeCurrent.edibility.cautions
+                    : "—"}
                 </p>
               </>
             )}
 
             <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-              <button
-                onClick={() => setIsFlipped((f) => !f)}
-                disabled={!current}
-              >
+              <button onClick={() => setIsFlipped((f) => !f)} disabled={!activeCurrent}>
                 {isFlipped ? "Show Front" : "Flip"}
               </button>
+
+              <button onClick={markMissed} disabled={!activeCurrent}>
+                Missed
+              </button>
+
               <button onClick={nextCard}>Next</button>
             </div>
+
+            {!inMissedRound && missed.length > 0 && (
+              <p style={{ marginTop: 12, opacity: 0.8 }}>
+                Missed cards will be reviewed after all selected categories finish.
+              </p>
+            )}
           </div>
         </>
       ) : (
         <p style={{ opacity: 0.8 }}>
-          Select categories, then click <strong>Start Session</strong>.
+          Select categories and settings, then click <strong>Start Session</strong>.
         </p>
       )}
     </main>
