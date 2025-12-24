@@ -3,7 +3,9 @@
 import { useMemo, useState } from "react";
 import plants from "../../data/plants.json";
 
-type Plant = (typeof plants)[number];
+type Plant = (typeof plants)[number] & {
+  image_url?: string; // optional (won't break old data)
+};
 
 type Category =
   | "friction_fire"
@@ -68,13 +70,9 @@ export default function FlashcardsPage() {
   const [sessionComplete, setSessionComplete] = useState(false);
 
   const [categoryIndex, setCategoryIndex] = useState(0);
-
-  // Deck is a list of plants; we move through it by index.
   const [deckIndex, setDeckIndex] = useState(0);
 
-  // Missed pile (plants the user marked as missed).
   const [missed, setMissed] = useState<Plant[]>([]);
-
   const [isFlipped, setIsFlipped] = useState(false);
 
   const selectedOrder = useMemo(() => {
@@ -82,6 +80,12 @@ export default function FlashcardsPage() {
       .filter(([, v]) => v)
       .map(([k]) => k);
   }, [selected]);
+
+  const totalCardsAllSelected = useMemo(() => {
+    return selectedOrder.reduce((sum, cat) => {
+      return sum + allPlants.filter((p) => matchesCategory(p, cat)).length;
+    }, 0);
+  }, [allPlants, selectedOrder]);
 
   const deckForCategory = useMemo(() => {
     if (selectedOrder.length === 0) return [];
@@ -91,15 +95,14 @@ export default function FlashcardsPage() {
     return shuffleOn ? shuffleArray(d) : d;
   }, [allPlants, selectedOrder, categoryIndex, shuffleOn]);
 
-  const totalCardsAllSelected = useMemo(() => {
-    return selectedOrder.reduce((sum, cat) => {
-      return sum + allPlants.filter((p) => matchesCategory(p, cat)).length;
-    }, 0);
-  }, [allPlants, selectedOrder]);
-
   const activeCategory = selectedOrder[categoryIndex];
   const deck = deckForCategory;
-  const current = deck[deckIndex];
+
+  const inMissedRound = sessionStarted && categoryIndex === selectedOrder.length;
+  const missedDeck = shuffleOn ? shuffleArray(missed) : missed;
+
+  const activeDeck = inMissedRound ? missedDeck : deck;
+  const activeCurrent = activeDeck[deckIndex];
 
   function resetSession() {
     setSessionStarted(false);
@@ -126,10 +129,8 @@ export default function FlashcardsPage() {
   }
 
   function nextCategoryOrFinish() {
-    const nextCat = categoryIndex + 1;
-
-    // Move to next category if there is one (skip empties by looping)
-    for (let i = nextCat; i < selectedOrder.length; i++) {
+    // Find next non-empty category
+    for (let i = categoryIndex + 1; i < selectedOrder.length; i++) {
       const cat = selectedOrder[i];
       const d = allPlants.filter((p) => matchesCategory(p, cat));
       if (d.length > 0) {
@@ -140,35 +141,18 @@ export default function FlashcardsPage() {
       }
     }
 
-    // No categories left — if missed exists, run missed round; otherwise complete.
+    // No categories left — run missed review if needed
     if (missed.length > 0) {
-      // Start missed round as a "virtual category"
-      setCategoryIndex(selectedOrder.length); // sentinel index
+      setCategoryIndex(selectedOrder.length); // sentinel index = missed round
       setDeckIndex(0);
       setIsFlipped(false);
       return;
     }
 
+    // Done
     setSessionStarted(false);
     setSessionComplete(true);
     setIsFlipped(false);
-  }
-
-  const inMissedRound = sessionStarted && categoryIndex === selectedOrder.length;
-  const missedDeck = shuffleOn ? shuffleArray(missed) : missed;
-  const activeDeck = inMissedRound ? missedDeck : deck;
-  const activeCurrent = activeDeck[deckIndex];
-
-  function markMissed() {
-    if (!activeCurrent) return;
-
-    setMissed((prev) => {
-      // Avoid duplicates
-      if (prev.some((p) => p.common_name === activeCurrent.common_name)) return prev;
-      return [...prev, activeCurrent];
-    });
-
-    nextCard();
   }
 
   function nextCard() {
@@ -184,9 +168,8 @@ export default function FlashcardsPage() {
       return;
     }
 
-    // End of this deck
+    // End of deck
     if (inMissedRound) {
-      // Finished missed round — complete session
       setSessionStarted(false);
       setSessionComplete(true);
       setIsFlipped(false);
@@ -194,6 +177,52 @@ export default function FlashcardsPage() {
     }
 
     nextCategoryOrFinish();
+  }
+
+  function markMissed() {
+    if (!activeCurrent) return;
+
+    setMissed((prev) => {
+      if (prev.some((p) => p.common_name === activeCurrent.common_name)) return prev;
+      return [...prev, activeCurrent];
+    });
+
+    nextCard();
+  }
+
+  if (!sessionStarted && totalCardsAllSelected === 0) {
+    return (
+      <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
+        <h1>Flashcards</h1>
+        <p>No cards available for the current selection.</p>
+        <p style={{ marginTop: 0, marginBottom: 16 }}>
+          <a href="/">Return Home</a>
+        </p>
+
+        <section
+          style={{
+            border: "1px solid #ddd",
+            borderRadius: 12,
+            padding: 16,
+            maxWidth: 760,
+          }}
+        >
+          <h2>Choose Categories</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+            {(Object.keys(CATEGORY_LABELS) as Category[]).map((cat) => (
+              <label key={cat} style={{ display: "flex", gap: 8 }}>
+                <input
+                  type="checkbox"
+                  checked={selected[cat]}
+                  onChange={() => toggleCategory(cat)}
+                />
+                {CATEGORY_LABELS[cat]}
+              </label>
+            ))}
+          </div>
+        </section>
+      </main>
+    );
   }
 
   if (sessionComplete) {
@@ -299,64 +328,86 @@ export default function FlashcardsPage() {
               border: "1px solid #ccc",
               borderRadius: 12,
               padding: 20,
-              maxWidth: 640,
+              maxWidth: 760,
             }}
           >
             {!activeCurrent ? (
               <p style={{ margin: 0 }}>No card loaded.</p>
-            ) : !isFlipped ? (
-              <>
-                <h2 style={{ marginTop: 0 }}>{activeCurrent.common_name}</h2>
-                <p style={{ fontStyle: "italic" }}>{activeCurrent.scientific_name}</p>
-              </>
             ) : (
               <>
-                <p>
-                  <strong>Uses:</strong>{" "}
-                  {activeCurrent.uses && activeCurrent.uses.length > 0
-                    ? activeCurrent.uses.join(", ")
-                    : "—"}
-                </p>
+                {/* IMAGE (shows on both front/back if present) */}
+                {activeCurrent.image_url && (
+                  <img
+                    src={activeCurrent.image_url}
+                    alt={activeCurrent.common_name}
+                    style={{
+                      width: "100%",
+                      maxHeight: 320,
+                      objectFit: "cover",
+                      borderRadius: 10,
+                      marginBottom: 12,
+                      border: "1px solid #e5e5e5",
+                    }}
+                  />
+                )}
 
-                <p>
-                  <strong>Edible Parts:</strong>{" "}
-                  {activeCurrent.edibility?.edible_parts?.length
-                    ? activeCurrent.edibility.edible_parts.join(", ")
-                    : "—"}
-                </p>
+                {!isFlipped ? (
+                  <>
+                    <h2 style={{ marginTop: 0 }}>{activeCurrent.common_name}</h2>
+                    <p style={{ fontStyle: "italic", marginTop: 4 }}>
+                      {activeCurrent.scientific_name}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      <strong>Uses:</strong>{" "}
+                      {activeCurrent.uses && activeCurrent.uses.length > 0
+                        ? activeCurrent.uses.join(", ")
+                        : "—"}
+                    </p>
 
-                <p>
-                  <strong>Medicinal Uses:</strong>{" "}
-                  {activeCurrent.medicinal?.uses?.length
-                    ? activeCurrent.medicinal.uses.join(", ")
-                    : "—"}
-                </p>
+                    <p>
+                      <strong>Edible Parts:</strong>{" "}
+                      {activeCurrent.edibility?.edible_parts?.length
+                        ? activeCurrent.edibility.edible_parts.join(", ")
+                        : "—"}
+                    </p>
 
-                <p>
-                  <strong>Cautions:</strong>{" "}
-                  {activeCurrent.edibility?.cautions
-                    ? activeCurrent.edibility.cautions
-                    : "—"}
-                </p>
+                    <p>
+                      <strong>Medicinal Uses:</strong>{" "}
+                      {activeCurrent.medicinal?.uses?.length
+                        ? activeCurrent.medicinal.uses.join(", ")
+                        : "—"}
+                    </p>
+
+                    <p>
+                      <strong>Cautions:</strong>{" "}
+                      {activeCurrent.edibility?.cautions
+                        ? activeCurrent.edibility.cautions
+                        : "—"}
+                    </p>
+                  </>
+                )}
+
+                <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
+                  <button onClick={() => setIsFlipped((f) => !f)} disabled={!activeCurrent}>
+                    {isFlipped ? "Show Front" : "Flip"}
+                  </button>
+
+                  <button onClick={markMissed} disabled={!activeCurrent}>
+                    Missed
+                  </button>
+
+                  <button onClick={nextCard}>Next</button>
+                </div>
+
+                {!inMissedRound && missed.length > 0 && (
+                  <p style={{ marginTop: 12, opacity: 0.8 }}>
+                    Missed cards will be reviewed after all selected categories finish.
+                  </p>
+                )}
               </>
-            )}
-
-            <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-              <button onClick={() => setIsFlipped((f) => !f)} disabled={!activeCurrent}>
-                {isFlipped ? "Show Front" : "Flip"}
-              </button>
-
-              <button onClick={markMissed} disabled={!activeCurrent}>
-                Missed
-              </button>
-
-              <button onClick={nextCard}>Next</button>
-            </div>
-
-            {!inMissedRound && missed.length > 0 && (
-              <p style={{ marginTop: 12, opacity: 0.8 }}>
-                Missed cards will be reviewed after all selected categories finish.
-              </p>
             )}
           </div>
         </>
