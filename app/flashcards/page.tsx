@@ -190,6 +190,10 @@ export default function FlashcardsPage() {
     nextCard();
   }
 
+  function toggleFlip() {
+    setIsFlipped((f) => !f);
+  }
+
   if (sessionComplete) {
     return (
       <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
@@ -297,11 +301,19 @@ export default function FlashcardsPage() {
           </p>
 
           <div
+            onClick={toggleFlip}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") toggleFlip();
+            }}
             style={{
               border: "1px solid #ccc",
               borderRadius: 12,
               padding: 20,
               maxWidth: 820,
+              cursor: current ? "pointer" : "default",
+              userSelect: "none",
             }}
           >
             {!current ? (
@@ -333,14 +345,15 @@ export default function FlashcardsPage() {
                           opacity: 0.8,
                         }}
                       >
-                        <p style={{ margin: 0 }}>
-                          No image yet for this card.
-                        </p>
+                        <p style={{ margin: 0 }}>No image yet for this card.</p>
                         <p style={{ margin: "8px 0 0 0", fontSize: 12 }}>
-                          Flip to reveal the plant name and details.
+                          Click/tap to flip for the answer.
                         </p>
                       </div>
                     )}
+                    <p style={{ marginTop: 12, opacity: 0.75, fontSize: 12 }}>
+                      Click/tap the card to flip.
+                    </p>
                   </>
                 ) : (
                   /* BACK: NAME + DETAILS */
@@ -387,29 +400,33 @@ export default function FlashcardsPage() {
                             .join(", ") || "—"
                         : "—"}
                     </p>
+
+                    <p style={{ marginTop: 12, opacity: 0.75, fontSize: 12 }}>
+                      Click/tap the card to flip back.
+                    </p>
                   </>
-                )}
-
-                <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-                  <button onClick={() => setIsFlipped((f) => !f)} disabled={!current}>
-                    {isFlipped ? "Show Image" : "Flip"}
-                  </button>
-
-                  <button onClick={markMissed} disabled={!current}>
-                    Missed
-                  </button>
-
-                  <button onClick={nextCard}>Next</button>
-                </div>
-
-                {!inMissedRound && missed.length > 0 && (
-                  <p style={{ marginTop: 12, opacity: 0.8 }}>
-                    Missed cards will be reviewed after all selected categories finish.
-                  </p>
                 )}
               </>
             )}
           </div>
+
+          <div style={{ display: "flex", gap: 12, marginTop: 16, maxWidth: 820 }}>
+            <button onClick={toggleFlip} disabled={!current}>
+              {isFlipped ? "Show Image" : "Flip"}
+            </button>
+
+            <button onClick={markMissed} disabled={!current}>
+              Missed
+            </button>
+
+            <button onClick={nextCard}>Next</button>
+          </div>
+
+          {!inMissedRound && missed.length > 0 && (
+            <p style={{ marginTop: 12, opacity: 0.8 }}>
+              Missed cards will be reviewed after all selected categories finish.
+            </p>
+          )}
         </>
       ) : (
         <p style={{ opacity: 0.8 }}>
