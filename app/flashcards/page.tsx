@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import plants from "../../data/plants.json";
 
 type Plant = (typeof plants)[number] & {
-  image_url?: string; // optional from importer
+  image_url?: string;
 };
 
 type Category =
@@ -98,7 +98,6 @@ export default function FlashcardsPage() {
   const activeCategory = selectedOrder[categoryIndex];
   const deck = deckForCategory;
 
-  // Missed round sentinel: categoryIndex === selectedOrder.length
   const inMissedRound = sessionStarted && categoryIndex === selectedOrder.length;
   const missedDeck = useMemo(
     () => (shuffleOn ? shuffleArray(missed) : missed),
@@ -134,7 +133,6 @@ export default function FlashcardsPage() {
   }
 
   function nextCategoryOrFinish() {
-    // Find next non-empty category
     for (let i = categoryIndex + 1; i < selectedOrder.length; i++) {
       const cat = selectedOrder[i];
       const d = allPlants.filter((p) => matchesCategory(p, cat));
@@ -146,15 +144,13 @@ export default function FlashcardsPage() {
       }
     }
 
-    // No categories left — run missed review if needed
     if (missed.length > 0) {
-      setCategoryIndex(selectedOrder.length); // missed round
+      setCategoryIndex(selectedOrder.length);
       setDeckIndex(0);
       setIsFlipped(false);
       return;
     }
 
-    // Done
     setSessionStarted(false);
     setSessionComplete(true);
     setIsFlipped(false);
@@ -173,7 +169,6 @@ export default function FlashcardsPage() {
       return;
     }
 
-    // End of deck
     if (inMissedRound) {
       setSessionStarted(false);
       setSessionComplete(true);
@@ -313,33 +308,53 @@ export default function FlashcardsPage() {
               <p style={{ margin: 0 }}>No card loaded.</p>
             ) : (
               <>
-                {current.image_url && (
-                  <img
-                    src={current.image_url}
-                    alt={current.common_name}
-                    style={{
-                      width: "100%",
-                      maxHeight: 320,
-                      objectFit: "cover",
-                      borderRadius: 10,
-                      marginBottom: 12,
-                      border: "1px solid #e5e5e5",
-                    }}
-                  />
-                )}
-
+                {/* FRONT: IMAGE ONLY (or placeholder) */}
                 {!isFlipped ? (
+                  <>
+                    {current.image_url ? (
+                      <img
+                        src={current.image_url}
+                        alt={current.common_name}
+                        style={{
+                          width: "100%",
+                          maxHeight: 360,
+                          objectFit: "cover",
+                          borderRadius: 10,
+                          border: "1px solid #e5e5e5",
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          border: "1px dashed #bbb",
+                          borderRadius: 10,
+                          padding: 24,
+                          textAlign: "center",
+                          opacity: 0.8,
+                        }}
+                      >
+                        <p style={{ margin: 0 }}>
+                          No image yet for this card.
+                        </p>
+                        <p style={{ margin: "8px 0 0 0", fontSize: 12 }}>
+                          Flip to reveal the plant name and details.
+                        </p>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  /* BACK: NAME + DETAILS */
                   <>
                     <h2 style={{ marginTop: 0 }}>{current.common_name}</h2>
                     <p style={{ fontStyle: "italic", marginTop: 4 }}>
                       {current.scientific_name}
                     </p>
-                  </>
-                ) : (
-                  <>
+
                     <p>
                       <strong>Uses:</strong>{" "}
-                      {current.uses && current.uses.length > 0 ? current.uses.join(", ") : "—"}
+                      {current.uses && current.uses.length > 0
+                        ? current.uses.join(", ")
+                        : "—"}
                     </p>
 
                     <p>
@@ -351,19 +366,33 @@ export default function FlashcardsPage() {
 
                     <p>
                       <strong>Medicinal Uses:</strong>{" "}
-                      {current.medicinal?.uses?.length ? current.medicinal.uses.join(", ") : "—"}
+                      {current.medicinal?.uses?.length
+                        ? current.medicinal.uses.join(", ")
+                        : "—"}
                     </p>
 
                     <p>
                       <strong>Cautions:</strong>{" "}
                       {current.edibility?.cautions ? current.edibility.cautions : "—"}
                     </p>
+
+                    <p>
+                      <strong>Friction Fire:</strong>{" "}
+                      {current.friction_fire
+                        ? [
+                            current.friction_fire.spindle && "Spindle",
+                            current.friction_fire.hearth && "Hearth",
+                          ]
+                            .filter(Boolean)
+                            .join(", ") || "—"
+                        : "—"}
+                    </p>
                   </>
                 )}
 
                 <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
                   <button onClick={() => setIsFlipped((f) => !f)} disabled={!current}>
-                    {isFlipped ? "Show Front" : "Flip"}
+                    {isFlipped ? "Show Image" : "Flip"}
                   </button>
 
                   <button onClick={markMissed} disabled={!current}>
