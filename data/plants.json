@@ -2,6 +2,7 @@
   {
     "common_name": "Acorns (Oaks)",
     "scientific_name": "Quercus spp.",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -36,6 +37,7 @@
   {
     "common_name": "Amaranth",
     "scientific_name": "Amaranthus spp.",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -70,6 +72,7 @@
   {
     "common_name": "Arrowhead / Wapato",
     "scientific_name": "Sagittaria spp.",
+    "plant_type": "Aquatic herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -104,6 +107,8 @@
   {
     "common_name": "Aspen",
     "scientific_name": "Populus spp.",
+    "plant_type": "Tree",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aspen_trees_3.jpg",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -136,6 +141,7 @@
   {
     "common_name": "Balsamroot",
     "scientific_name": "Balsamorhiza sagittata",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -172,6 +178,8 @@
   {
     "common_name": "Basswood / American Linden",
     "scientific_name": "Tilia americana",
+    "plant_type": "Tree",
+    "image_url": "https://commons.wikimedia.org/wiki/File:Basswood_6070.jpg",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -206,6 +214,7 @@
   {
     "common_name": "Beach Lovage / Sea Lovage",
     "scientific_name": "Ligusticum scoticum",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -240,6 +249,7 @@
   {
     "common_name": "Bee Balm / Wild Bergamot",
     "scientific_name": "Monarda fistulosa",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -276,6 +286,7 @@
   {
     "common_name": "Black Cherry",
     "scientific_name": "Prunus serotina",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -312,6 +323,7 @@
   {
     "common_name": "Black Locust (flowers)",
     "scientific_name": "Robinia pseudoacacia",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -344,6 +356,7 @@
   {
     "common_name": "Blackberry",
     "scientific_name": "Rubus spp.",
+    "plant_type": "Shrub",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -380,6 +393,7 @@
   {
     "common_name": "Burdock",
     "scientific_name": "Arctium spp.",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -416,6 +430,7 @@
   {
     "common_name": "Cattail",
     "scientific_name": "Typha latifolia",
+    "plant_type": "Aquatic herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -450,6 +465,7 @@
   {
     "common_name": "Chickweed",
     "scientific_name": "Stellaria media",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -486,6 +502,7 @@
   {
     "common_name": "Chicory",
     "scientific_name": "Cichorium intybus",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -522,6 +539,7 @@
   {
     "common_name": "Clover (Red/White)",
     "scientific_name": "Trifolium pratense; Trifolium repens",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -558,6 +576,7 @@
   {
     "common_name": "Cottonwood (Eastern)",
     "scientific_name": "Populus deltoides",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -590,6 +609,7 @@
   {
     "common_name": "Dandelion",
     "scientific_name": "Taraxacum officinale",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -626,6 +646,7 @@
   {
     "common_name": "Daylily",
     "scientific_name": "Hemerocallis fulva",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -660,6 +681,7 @@
   {
     "common_name": "Eastern Red Cedar",
     "scientific_name": "Juniperus virginiana",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -692,6 +714,7 @@
   {
     "common_name": "Elderberry",
     "scientific_name": "Sambucus canadensis (NA); Sambucus nigra",
+    "plant_type": "Shrub",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -726,6 +749,7 @@
   {
     "common_name": "Fiddleheads (e.g., Ostrich fern)",
     "scientific_name": "Matteuccia struthiopteris (commonly)",
+    "plant_type": "Fern",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -758,6 +782,7 @@
   {
     "common_name": "Garlic Grass / Wild Garlic",
     "scientific_name": "Allium vineale",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -792,6 +817,7 @@
   {
     "common_name": "Garlic Mustard",
     "scientific_name": "Alliaria petiolata",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -826,6 +852,7 @@
   {
     "common_name": "Goldenrod",
     "scientific_name": "Solidago spp.",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -862,6 +889,7 @@
   {
     "common_name": "Goose Tongue / Sea Plantain",
     "scientific_name": "Plantago maritima",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -896,6 +924,7 @@
   {
     "common_name": "Gooseberry",
     "scientific_name": "Ribes spp.",
+    "plant_type": "Shrub",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -930,6 +959,7 @@
   {
     "common_name": "Hazelnut (American Hazel)",
     "scientific_name": "Corylus americana",
+    "plant_type": "Shrub",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -964,6 +994,7 @@
   {
     "common_name": "Herb Robert",
     "scientific_name": "Geranium robertianum",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1000,6 +1031,7 @@
   {
     "common_name": "Hickory",
     "scientific_name": "Carya spp.",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1034,6 +1066,7 @@
   {
     "common_name": "Jerusalem Artichoke / Sunchoke",
     "scientific_name": "Helianthus tuberosus",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1068,6 +1101,7 @@
   {
     "common_name": "Kudzu",
     "scientific_name": "Pueraria montana var. lobata",
+    "plant_type": "Vine",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1102,6 +1136,7 @@
   {
     "common_name": "Lamb’s Quarters",
     "scientific_name": "Chenopodium album",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1136,6 +1171,7 @@
   {
     "common_name": "Mallow (Common Mallow)",
     "scientific_name": "Malva neglecta",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1172,6 +1208,7 @@
   {
     "common_name": "Marshmallow (Wild)",
     "scientific_name": "Althaea officinalis",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1208,6 +1245,7 @@
   {
     "common_name": "Mayapple",
     "scientific_name": "Podophyllum peltatum",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1240,6 +1278,7 @@
   {
     "common_name": "Milk Thistle",
     "scientific_name": "Silybum marianum",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1276,6 +1315,7 @@
   {
     "common_name": "Miner’s Lettuce",
     "scientific_name": "Claytonia perfoliata",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1310,6 +1350,7 @@
   {
     "common_name": "Monkeyflower",
     "scientific_name": "Erythranthe spp. (formerly Mimulus)",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1344,6 +1385,7 @@
   {
     "common_name": "Mulberry",
     "scientific_name": "Morus spp.",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1378,6 +1420,7 @@
   {
     "common_name": "Mullein",
     "scientific_name": "Verbascum thapsus",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -1412,6 +1455,7 @@
   {
     "common_name": "Nettles (Stinging Nettle)",
     "scientific_name": "Urtica dioica",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1446,6 +1490,7 @@
   {
     "common_name": "Persimmon (American)",
     "scientific_name": "Diospyros virginiana",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1478,6 +1523,7 @@
   {
     "common_name": "Pine (various)",
     "scientific_name": "Pinus spp.",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1512,6 +1558,7 @@
   {
     "common_name": "Pineapple Weed",
     "scientific_name": "Matricaria discoidea",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1548,6 +1595,7 @@
   {
     "common_name": "Plantain (Broadleaf)",
     "scientific_name": "Plantago major",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1584,6 +1632,7 @@
   {
     "common_name": "Prickly Pear",
     "scientific_name": "Opuntia spp.",
+    "plant_type": "Cactus",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1618,6 +1667,7 @@
   {
     "common_name": "Purslane",
     "scientific_name": "Portulaca oleracea",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1652,6 +1702,7 @@
   {
     "common_name": "Queen Anne’s Lace / Wild Carrot",
     "scientific_name": "Daucus carota",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1684,6 +1735,7 @@
   {
     "common_name": "Ramps / Wild Leeks",
     "scientific_name": "Allium tricoccum",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1718,6 +1770,7 @@
   {
     "common_name": "Sheep Sorrel",
     "scientific_name": "Rumex acetosella",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1750,6 +1803,7 @@
   {
     "common_name": "Sotol (Desert Spoon)",
     "scientific_name": "Dasylirion wheeleri",
+    "plant_type": "Shrub-like succulent",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -1782,6 +1836,7 @@
   {
     "common_name": "Staghorn Sumac",
     "scientific_name": "Rhus typhina",
+    "plant_type": "Shrub/tree",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -1816,6 +1871,7 @@
   {
     "common_name": "Sycamore (American)",
     "scientific_name": "Platanus occidentalis",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -1848,6 +1904,7 @@
   {
     "common_name": "Tulip Poplar / Yellow Poplar",
     "scientific_name": "Liriodendron tulipifera",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -1880,6 +1937,7 @@
   {
     "common_name": "Violets",
     "scientific_name": "Viola spp.",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1916,6 +1974,7 @@
   {
     "common_name": "Walnut (Black/others)",
     "scientific_name": "Juglans spp.",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1950,6 +2009,7 @@
   {
     "common_name": "Watercress",
     "scientific_name": "Nasturtium officinale",
+    "plant_type": "Aquatic herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -1984,6 +2044,7 @@
   {
     "common_name": "Western Red Cedar",
     "scientific_name": "Thuja plicata",
+    "plant_type": "Tree",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2016,6 +2077,7 @@
   {
     "common_name": "Wild Asparagus",
     "scientific_name": "Asparagus officinalis",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2050,6 +2112,7 @@
   {
     "common_name": "Wild Blueberry",
     "scientific_name": "Vaccinium spp.",
+    "plant_type": "Shrub",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2084,6 +2147,7 @@
   {
     "common_name": "Wild Mustard",
     "scientific_name": "Brassica spp.",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2118,6 +2182,7 @@
   {
     "common_name": "Wild Onion / Wild Chives",
     "scientific_name": "Allium canadense and related",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2152,6 +2217,7 @@
   {
     "common_name": "Wild Rose (hips/petals)",
     "scientific_name": "Rosa spp.",
+    "plant_type": "Shrub",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2188,6 +2254,7 @@
   {
     "common_name": "Wild Strawberry",
     "scientific_name": "Fragaria virginiana (common)",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2222,6 +2289,7 @@
   {
     "common_name": "Willow",
     "scientific_name": "Salix spp.",
+    "plant_type": "Tree/shrub",
     "uses": [],
     "friction_fire": {
       "spindle": true,
@@ -2256,6 +2324,7 @@
   {
     "common_name": "Yarrow",
     "scientific_name": "Achillea millefolium",
+    "plant_type": "Herb",
     "uses": [],
     "friction_fire": {
       "spindle": false,
@@ -2290,6 +2359,7 @@
   {
     "common_name": "Yucca",
     "scientific_name": "Yucca spp.",
+    "plant_type": "Shrub-like succulent",
     "uses": [],
     "friction_fire": {
       "spindle": true,
