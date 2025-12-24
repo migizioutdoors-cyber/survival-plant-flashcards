@@ -1,68 +1,2324 @@
 [
   {
-    "common_name": "Eastern Red Cedar",
-    "scientific_name": "Juniperus virginiana",
-    "region": "North America",
-    "categories": ["tree", "evergreen"],
-    "uses": ["firecraft", "tinder", "wood"],
+    "common_name": "Acorns (Oaks)",
+    "scientific_name": "Quercus spp.",
+    "uses": [],
     "friction_fire": {
       "spindle": false,
-      "hearth": true,
-      "notes": "Common hearth board material when dry; pairs well with softer spindles."
-    },
-    "edibility": {
-      "edible_parts": [],
-      "prep_notes": "",
-      "warnings": "Berries resemble edible juniper but should not be consumed in quantity."
-    },
-    "medicinal": {
-      "uses": [],
-      "warnings": ""
-    },
-    "cordage": {
-      "usable": false,
+      "hearth": false,
       "notes": ""
     },
     "tinder": {
-      "usable": true,
-      "notes": "Inner bark and shavings catch sparks well when dry."
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
     },
     "wood": {
-      "usable": true,
-      "notes": "Excellent for kindling and fire starting due to aromatic oils."
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Leach tannins before eating; avoid moldy/infested nuts."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
     }
   },
   {
-    "common_name": "Tulip Poplar",
-    "scientific_name": "Liriodendron tulipifera",
-    "region": "North America",
-    "categories": ["tree", "hardwood"],
-    "uses": ["friction fire", "spindle", "hearth"],
+    "common_name": "Amaranth",
+    "scientific_name": "Amaranthus spp.",
+    "uses": [],
     "friction_fire": {
-      "spindle": true,
-      "hearth": true,
-      "notes": "Classic friction-fire wood; often works best when both spindle and hearth are from the same dry poplar."
-    },
-    "edibility": {
-      "edible_parts": [],
-      "prep_notes": "",
-      "warnings": ""
-    },
-    "medicinal": {
-      "uses": [],
-      "warnings": ""
-    },
-    "cordage": {
-      "usable": false,
+      "spindle": false,
+      "hearth": false,
       "notes": ""
     },
     "tinder": {
       "usable": false,
       "notes": ""
     },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Some species are invasive; confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Arrowhead / Wapato",
+    "scientific_name": "Sagittaria spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Harvest tubers from clean water; avoid contaminated sites."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Aspen",
+    "scientific_name": "Populus spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Soft wood sometimes used for bow-drill sets."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
     "wood": {
       "usable": true,
-      "notes": "Carves easily; useful for hearth boards, notches, and campcraft."
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Ensure wood is dead/dry for friction fire."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Balsamroot",
+    "scientific_name": "Balsamorhiza sagittata",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Harvest ethics; confirm regional regulations."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Basswood / American Linden",
+    "scientific_name": "Tilia americana",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Top-tier bow-drill hearth/spindle material; inner bark for cordage."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "None specific; confirm local identification."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Beach Lovage / Sea Lovage",
+    "scientific_name": "Ligusticum scoticum",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Coastal plant; confirm ID (Apiaceae can have toxic lookalikes)."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Bee Balm / Wild Bergamot",
+    "scientific_name": "Monarda fistulosa",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Mint-family generally safe; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Black Cherry",
+    "scientific_name": "Prunus serotina",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Seeds/leaves can contain cyanogenic compounds; cook fruit for safety."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Black Locust (flowers)",
+    "scientific_name": "Robinia pseudoacacia",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Only flowers are eaten; other parts can be toxic."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Blackberry",
+    "scientific_name": "Rubus spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Avoid contaminated/roadside harvest; thorns."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Burdock",
+    "scientific_name": "Arctium spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Can be confused with other large-leaf plants; burrs."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Cattail",
+    "scientific_name": "Typha latifolia",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": "Fluff can be tinder (not friction-fire wood)."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Harvest from clean wetlands; avoid polluted water."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Chickweed",
+    "scientific_name": "Stellaria media",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID; avoid contaminated soils."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Chicory",
+    "scientific_name": "Cichorium intybus",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Bitter; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Clover (Red/White)",
+    "scientific_name": "Trifolium pratense; Trifolium repens",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "May cause bloating if overeaten; avoid treated lawns."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Cottonwood (Eastern)",
+    "scientific_name": "Populus deltoides",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Often used for bow-drill hearth/spindle when dead/dry."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Ensure dry wood; avoid resinous/green wood."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Dandelion",
+    "scientific_name": "Taraxacum officinale",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Avoid treated lawns and contaminated areas."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Daylily",
+    "scientific_name": "Hemerocallis fulva",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Do not confuse with true lilies (Lilium spp.)."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Eastern Red Cedar",
+    "scientific_name": "Juniperus virginiana",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Common bow-drill wood in some regions; resinous aroma."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Avoid green/resin-heavy pieces; ensure wood selection fits method."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Elderberry",
+    "scientific_name": "Sambucus canadensis (NA); Sambucus nigra",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Some use elder stems (dry) for hand-drill spindles."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Cook berries; raw can cause GI upset."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Fiddleheads (e.g., Ostrich fern)",
+    "scientific_name": "Matteuccia struthiopteris (commonly)",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Only eat known edible species; cook thoroughly."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Garlic Grass / Wild Garlic",
+    "scientific_name": "Allium vineale",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm onion/garlic smell; avoid toxic lookalikes without odor."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Garlic Mustard",
+    "scientific_name": "Alliaria petiolata",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Invasive; confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Goldenrod",
+    "scientific_name": "Solidago spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Often confused with ragweed for allergies; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Goose Tongue / Sea Plantain",
+    "scientific_name": "Plantago maritima",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Coastal; confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Gooseberry",
+    "scientific_name": "Ribes spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Some regions restrict Ribes due to forestry rules; check local regs."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Hazelnut (American Hazel)",
+    "scientific_name": "Corylus americana",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Allergies possible; confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Herb Robert",
+    "scientific_name": "Geranium robertianum",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Strong odor; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Hickory",
+    "scientific_name": "Carya spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Hard shells; ensure nuts are not rancid."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Jerusalem Artichoke / Sunchoke",
+    "scientific_name": "Helianthus tuberosus",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Can cause gas for some; confirm ID with sunflower-like blooms."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Kudzu",
+    "scientific_name": "Pueraria montana var. lobata",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Invasive; confirm ID; avoid sprayed areas."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Lamb’s Quarters",
+    "scientific_name": "Chenopodium album",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Oxalates; cook if sensitive. Confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Mallow (Common Mallow)",
+    "scientific_name": "Malva neglecta",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Mucilaginous texture; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Marshmallow (Wild)",
+    "scientific_name": "Althaea officinalis",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Often in wet areas; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Mayapple",
+    "scientific_name": "Podophyllum peltatum",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Only fully ripe fruit is edible; plant parts are toxic."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Milk Thistle",
+    "scientific_name": "Silybum marianum",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Spiny; use gloves; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Miner’s Lettuce",
+    "scientific_name": "Claytonia perfoliata",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID; avoid contaminated areas."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Monkeyflower",
+    "scientific_name": "Erythranthe spp. (formerly Mimulus)",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID; avoid protected species/areas."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Mulberry",
+    "scientific_name": "Morus spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Stains; avoid contaminated areas."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Mullein",
+    "scientific_name": "Verbascum thapsus",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Dry stalks can be used for hand-drill spindles."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Introduced; leaves irritating if not strained in tea."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Nettles (Stinging Nettle)",
+    "scientific_name": "Urtica dioica",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Stings when raw; cook/dry. Wear gloves when harvesting."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Persimmon (American)",
+    "scientific_name": "Diospyros virginiana",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Eat only fully ripe/soft fruit; unripe is very astringent."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Pine (various)",
+    "scientific_name": "Pinus spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": "Resinous tinder/pitch; not friction-fire wood typically."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Confirm conifer ID; avoid non-pine toxic lookalikes."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Pineapple Weed",
+    "scientific_name": "Matricaria discoidea",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID by pineapple scent."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Plantain (Broadleaf)",
+    "scientific_name": "Plantago major",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Avoid treated lawns; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Prickly Pear",
+    "scientific_name": "Opuntia spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Remove spines/glochids thoroughly before eating."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Purslane",
+    "scientific_name": "Portulaca oleracea",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Avoid spurge lookalikes; confirm succulent leaves."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Queen Anne’s Lace / Wild Carrot",
+    "scientific_name": "Daucus carota",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "High-risk lookalike: poison hemlock; confirm hairy stem and ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Ramps / Wild Leeks",
+    "scientific_name": "Allium tricoccum",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Harvest sustainably; confirm strong onion smell."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Sheep Sorrel",
+    "scientific_name": "Rumex acetosella",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Oxalates; use sparingly. Confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Sotol (Desert Spoon)",
+    "scientific_name": "Dasylirion wheeleri",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Friction-fire spindle/hearth in some SW traditions; leaves yield fibers."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Region-specific; avoid protected populations."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Staghorn Sumac",
+    "scientific_name": "Rhus typhina",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Some use dry sumac for friction fire; berries for tea/spice."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Avoid poison sumac (white berries)."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Sycamore (American)",
+    "scientific_name": "Platanus occidentalis",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Can work for bow-drill sets; bark strips can smolder."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Ensure dry wood; avoid green wood."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Tulip Poplar / Yellow Poplar",
+    "scientific_name": "Liriodendron tulipifera",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Often cited as good bow-drill wood when dry."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Ensure dry wood."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Violets",
+    "scientific_name": "Viola spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID; avoid ornamental treated areas."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Walnut (Black/others)",
+    "scientific_name": "Juglans spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Hull stains; ensure nuts are not rancid."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Watercress",
+    "scientific_name": "Nasturtium officinale",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Only harvest from clean water; parasite risk in contaminated streams."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Western Red Cedar",
+    "scientific_name": "Thuja plicata",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": "Regionally used for friction fire; bark fibers for cordage."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Region-specific; ensure non-treated wood; confirm ID."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Wild Asparagus",
+    "scientific_name": "Asparagus officinalis",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID; harvest young shoots."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Wild Blueberry",
+    "scientific_name": "Vaccinium spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm berry ID; avoid unknown berries."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Wild Mustard",
+    "scientific_name": "Brassica spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm mustard-family traits; avoid contaminated areas."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Wild Onion / Wild Chives",
+    "scientific_name": "Allium canadense and related",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm onion odor; avoid non-Allium lookalikes."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Wild Rose (hips/petals)",
+    "scientific_name": "Rosa spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Remove irritating hairs inside hips; watch thorns."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Wild Strawberry",
+    "scientific_name": "Fragaria virginiana (common)",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": "Confirm ID; avoid false strawberry if unsure."
+    },
+    "medicinal": {
+      "uses": [],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Willow",
+    "scientific_name": "Salix spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Often used in hand-drill/bow-drill when dry; bark has salicin."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Do not overharvest bark; confirm species."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Yarrow",
+    "scientific_name": "Achillea millefolium",
+    "uses": [],
+    "friction_fire": {
+      "spindle": false,
+      "hearth": false,
+      "notes": ""
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": false,
+      "material": ""
+    },
+    "wood": {
+      "usable": false,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Some people react to Asteraceae; confirm ID."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
+    }
+  },
+  {
+    "common_name": "Yucca",
+    "scientific_name": "Yucca spp.",
+    "uses": [],
+    "friction_fire": {
+      "spindle": true,
+      "hearth": true,
+      "notes": "Classic hand-drill/bow-drill combo in arid regions; leaf fibers for cordage."
+    },
+    "tinder": {
+      "usable": false,
+      "notes": ""
+    },
+    "cordage": {
+      "usable": true,
+      "material": ""
+    },
+    "wood": {
+      "usable": true,
+      "notes": ""
+    },
+    "edibility": {
+      "edible_parts": [],
+      "preparation": "",
+      "cautions": "Region-specific; some species protected; prepare properly for edibility."
+    },
+    "medicinal": {
+      "uses": [
+        "see notes"
+      ],
+      "preparation": "",
+      "cautions": ""
     }
   }
 ]
