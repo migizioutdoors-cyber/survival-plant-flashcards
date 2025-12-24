@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import plants from "../../data/plants.json";
 
 type Plant = (typeof plants)[number] & {
-  image_url?: string; // optional (won't break old data)
+  image_url?: string; // optional from importer
 };
 
 type Category =
@@ -98,11 +98,16 @@ export default function FlashcardsPage() {
   const activeCategory = selectedOrder[categoryIndex];
   const deck = deckForCategory;
 
+  // Missed round sentinel: categoryIndex === selectedOrder.length
   const inMissedRound = sessionStarted && categoryIndex === selectedOrder.length;
-  const missedDeck = shuffleOn ? shuffleArray(missed) : missed;
+  const missedDeck = useMemo(
+    () => (shuffleOn ? shuffleArray(missed) : missed),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [missed, shuffleOn]
+  );
 
   const activeDeck = inMissedRound ? missedDeck : deck;
-  const activeCurrent = activeDeck[deckIndex];
+  const current = activeDeck[deckIndex];
 
   function resetSession() {
     setSessionStarted(false);
@@ -143,7 +148,7 @@ export default function FlashcardsPage() {
 
     // No categories left — run missed review if needed
     if (missed.length > 0) {
-      setCategoryIndex(selectedOrder.length); // sentinel index = missed round
+      setCategoryIndex(selectedOrder.length); // missed round
       setDeckIndex(0);
       setIsFlipped(false);
       return;
@@ -180,49 +185,14 @@ export default function FlashcardsPage() {
   }
 
   function markMissed() {
-    if (!activeCurrent) return;
+    if (!current) return;
 
     setMissed((prev) => {
-      if (prev.some((p) => p.common_name === activeCurrent.common_name)) return prev;
-      return [...prev, activeCurrent];
+      if (prev.some((p) => p.common_name === current.common_name)) return prev;
+      return [...prev, current];
     });
 
     nextCard();
-  }
-
-  if (!sessionStarted && totalCardsAllSelected === 0) {
-    return (
-      <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
-        <h1>Flashcards</h1>
-        <p>No cards available for the current selection.</p>
-        <p style={{ marginTop: 0, marginBottom: 16 }}>
-          <a href="/">Return Home</a>
-        </p>
-
-        <section
-          style={{
-            border: "1px solid #ddd",
-            borderRadius: 12,
-            padding: 16,
-            maxWidth: 760,
-          }}
-        >
-          <h2>Choose Categories</h2>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-            {(Object.keys(CATEGORY_LABELS) as Category[]).map((cat) => (
-              <label key={cat} style={{ display: "flex", gap: 8 }}>
-                <input
-                  type="checkbox"
-                  checked={selected[cat]}
-                  onChange={() => toggleCategory(cat)}
-                />
-                {CATEGORY_LABELS[cat]}
-              </label>
-            ))}
-          </div>
-        </section>
-      </main>
-    );
   }
 
   if (sessionComplete) {
@@ -261,7 +231,7 @@ export default function FlashcardsPage() {
           border: "1px solid #ddd",
           borderRadius: 12,
           padding: 16,
-          maxWidth: 760,
+          maxWidth: 820,
           marginBottom: 16,
         }}
       >
@@ -281,7 +251,15 @@ export default function FlashcardsPage() {
           ))}
         </div>
 
-        <div style={{ display: "flex", gap: 16, marginTop: 12, alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 16,
+            marginTop: 12,
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
           <label style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <input
               type="checkbox"
@@ -328,18 +306,17 @@ export default function FlashcardsPage() {
               border: "1px solid #ccc",
               borderRadius: 12,
               padding: 20,
-              maxWidth: 760,
+              maxWidth: 820,
             }}
           >
-            {!activeCurrent ? (
+            {!current ? (
               <p style={{ margin: 0 }}>No card loaded.</p>
             ) : (
               <>
-                {/* IMAGE (shows on both front/back if present) */}
-                {activeCurrent.image_url && (
+                {current.image_url && (
                   <img
-                    src={activeCurrent.image_url}
-                    alt={activeCurrent.common_name}
+                    src={current.image_url}
+                    alt={current.common_name}
                     style={{
                       width: "100%",
                       maxHeight: 320,
@@ -353,49 +330,43 @@ export default function FlashcardsPage() {
 
                 {!isFlipped ? (
                   <>
-                    <h2 style={{ marginTop: 0 }}>{activeCurrent.common_name}</h2>
+                    <h2 style={{ marginTop: 0 }}>{current.common_name}</h2>
                     <p style={{ fontStyle: "italic", marginTop: 4 }}>
-                      {activeCurrent.scientific_name}
+                      {current.scientific_name}
                     </p>
                   </>
                 ) : (
                   <>
                     <p>
                       <strong>Uses:</strong>{" "}
-                      {activeCurrent.uses && activeCurrent.uses.length > 0
-                        ? activeCurrent.uses.join(", ")
-                        : "—"}
+                      {current.uses && current.uses.length > 0 ? current.uses.join(", ") : "—"}
                     </p>
 
                     <p>
                       <strong>Edible Parts:</strong>{" "}
-                      {activeCurrent.edibility?.edible_parts?.length
-                        ? activeCurrent.edibility.edible_parts.join(", ")
+                      {current.edibility?.edible_parts?.length
+                        ? current.edibility.edible_parts.join(", ")
                         : "—"}
                     </p>
 
                     <p>
                       <strong>Medicinal Uses:</strong>{" "}
-                      {activeCurrent.medicinal?.uses?.length
-                        ? activeCurrent.medicinal.uses.join(", ")
-                        : "—"}
+                      {current.medicinal?.uses?.length ? current.medicinal.uses.join(", ") : "—"}
                     </p>
 
                     <p>
                       <strong>Cautions:</strong>{" "}
-                      {activeCurrent.edibility?.cautions
-                        ? activeCurrent.edibility.cautions
-                        : "—"}
+                      {current.edibility?.cautions ? current.edibility.cautions : "—"}
                     </p>
                   </>
                 )}
 
                 <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-                  <button onClick={() => setIsFlipped((f) => !f)} disabled={!activeCurrent}>
+                  <button onClick={() => setIsFlipped((f) => !f)} disabled={!current}>
                     {isFlipped ? "Show Front" : "Flip"}
                   </button>
 
-                  <button onClick={markMissed} disabled={!activeCurrent}>
+                  <button onClick={markMissed} disabled={!current}>
                     Missed
                   </button>
 
